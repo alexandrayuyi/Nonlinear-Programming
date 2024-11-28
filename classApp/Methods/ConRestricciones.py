@@ -43,8 +43,8 @@ class Solver:
     
     def graficar(self, coef):
         """
-        Grafica la curva de la función objetivo, marca los valores optimizados de las variables
-        y señala el punto óptimo de la función objetivo.
+        Grafica las curvas de las variables en el mismo plano cartesiano
+        y marca el punto del valor óptimo de la función objetivo.
         
         :param coef: Lista de coeficientes correspondientes a las variables.
         """
@@ -54,27 +54,29 @@ class Solver:
         variables = self.solution
         n_vars = len(variables)
 
-        # Crear gráficos para cada variable
-        x = np.linspace(-10, 10, 500)  # Rango de valores para graficar
-        fig, axes = plt.subplots(1, n_vars, figsize=(6 * n_vars, 5), squeeze=False)
-
+        # Crear un rango de valores para graficar
+        x = np.linspace(-10, 10, 500)
+        
+        # Iniciar el gráfico
+        plt.figure(figsize=(10, 6))
+        
+        # Graficar las curvas de todas las variables
         for i in range(n_vars):
             y = coef[i] * x**2  # Función cuadrática para cada variable
-            axes[0, i].plot(x, y, label=f"Variable {i+1}")
-            axes[0, i].scatter([variables[i]], [coef[i] * variables[i]**2], color='red', label="Óptimo")
-            axes[0, i].set_title(f"Variable {i+1}")
-            axes[0, i].set_xlabel("x")
-            axes[0, i].set_ylabel("f(x)")
-            axes[0, i].legend()
+            plt.plot(x, y, label=f"Variable {i+1}")
+            plt.scatter([variables[i]], [coef[i] * variables[i]**2], 
+                        color='red', label=f"Óptimo Variable {i+1}")
 
-        # Mostrar el valor óptimo general
-        plt.figure(figsize=(6, 5))
+        # Marcar el valor óptimo de la función objetivo
         plt.scatter([0], [self.optimal_value], color='blue', label="Óptimo de la función objetivo")
         plt.axhline(self.optimal_value, color='blue', linestyle='--', alpha=0.7)
-        plt.title("Valor óptimo de la función objetivo")
-        plt.xlabel("Iteración")
-        plt.ylabel("Valor de la función objetivo")
+
+        # Configurar etiquetas y leyenda
+        plt.title("Curvas de las variables y punto óptimo de la función objetivo")
+        plt.xlabel("x")
+        plt.ylabel("f(x)")
         plt.legend()
+        plt.grid(True)
         plt.show()
         
 
