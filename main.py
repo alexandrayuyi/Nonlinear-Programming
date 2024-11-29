@@ -39,6 +39,6 @@ if __name__ == "__main__":
                 case _: 
                     band=False
         except: 
-            print("\n\t ⚠ ERROR..Reintentar!! ⚠ ")
+            print("\n\t\t  ⚠ ERROR..Reintentar!! ⚠ ")
             ...
         ...
