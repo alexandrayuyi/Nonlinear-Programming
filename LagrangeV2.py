@@ -66,7 +66,7 @@ class InvestmentOptimizer:
             'message': res.message
         }
 
-def main():
+def Sample() -> None:
     optimizer = InvestmentOptimizer()
     
     print("Bienvenido al Optimizador de Inversiones")
@@ -93,5 +93,7 @@ def main():
     print(f"Éxito: {result['success']}")
     print(f"Mensaje: {result['message']}")
 
+    ...
+
 if __name__ == "__main__":
-    main()
+    ...

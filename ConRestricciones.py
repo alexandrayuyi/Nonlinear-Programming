@@ -79,15 +79,18 @@ class Solver:
         plt.grid(True)
         plt.show()
         
+def Sample() -> None:
+        # Ejemplo de uso
+    def restriccion(vars):
+        # Define tu restricción aquí, por ejemplo:
+        return sum(vars) - 100
 
-# Ejemplo de uso
-
-def restriccion(vars):
-    # Define tu restricción aquí, por ejemplo:
-    return sum(vars) - 100
-
-solver = Solver(3)  # Suponiendo que tenemos 3 variables
-coef = [5, 3, 1]  # Coeficientes para las variables
-solver.solve(coef, restriccion)
-print(solver.get_solution())
-solver.graficar(coef)
+    solver = Solver(3)  # Suponiendo que tenemos 3 variables
+    coef = [5, 3, 1]  # Coeficientes para las variables
+    solver.solve(coef, restriccion)
+    print(solver.get_solution())
+    solver.graficar(coef)
+    ...
+    
+if __name__ == "__main__":
+    ...
